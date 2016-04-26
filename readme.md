@@ -15,3 +15,4 @@ will show the new message.
 1. Run the server with `gulp`
   * If your database is empty, the application will automatically seed some random notifications. If you need to reset your notifications, you should go into your database and `.remove({})` all notifications.
 1. At some point you will need to download the [angular-socket-io](https://github.com/btford/angular-socket-io) JS file. You'll want to just download the zip file and extract the `.min.js`.
+# socket-server
