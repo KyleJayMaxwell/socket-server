@@ -2,7 +2,8 @@
   'use strict';
 
   angular.module('myApp')
-    .service('NotificationService', NotificationService);
+    .service('NotificationService', NotificationService)
+    .service('SocketService', SocketService);
 
   NotificationService.$inject = ['$http'];
 
@@ -15,5 +16,11 @@
         return $http.put('/api/notifications/' + id + '/read');
       }
     };
+  }
+
+  SocketService.$inject = ['socketFactory'];
+
+  function SocketService (socketFactory){
+    return socketFactory();
   }
 })();

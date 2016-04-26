@@ -1,7 +1,9 @@
 (function () {
   'use strict';
 
-  angular.module('myApp', ['ngRoute']).config(config);
+  angular.module('myApp', 
+    ['ngRoute', 'btford.socket-io'])
+    .config(config);
 
   config.$inject = ['$routeProvider'];
 

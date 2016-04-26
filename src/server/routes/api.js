@@ -11,6 +11,7 @@ module.exports = router;
 ///////////////////////////
 
 function ping (req, res) {
+  global.io.emit('status', 'Hello from routes');
   res.status(200).json({ message: 'pong!' });
 };
 
@@ -22,6 +23,7 @@ function get (req, res) {
 };
 
 function post (req, res) {
+  global.io.emit('status', 'Posted');
   if ( !req.body || !req.body.content ) {
     res.status(422).json({ errors: { invalid: 'Requires a `content` key.' }});
   } else {
@@ -42,6 +44,7 @@ function read (req, res) {
     return notification.save();
   })
   .then(function (notification) {
+    global.io.emit('notifications.read', notification);
     res.status(200).json(notification);
   })
   .catch(function (notification) {
